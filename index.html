@@ -19,7 +19,6 @@
       --border: rgba(28,28,26,0.1);
       --accent: #8B6F4E;
       --accent-light: #F5EFE8;
-      --sale-red: #A94442;
       --serif: 'Cormorant Garamond', Georgia, serif;
       --sans: 'DM Sans', sans-serif;
     }
@@ -130,7 +129,7 @@
     }
     .hero-tag strong { display: block; font-weight: 500; color: var(--charcoal); font-size: 14px; }
 
-    /* ── TICKER ── */
+    /* ── TICKER / BANNER ── */
     .ticker {
       background: var(--charcoal); color: var(--cream);
       overflow: hidden; white-space: nowrap;
@@ -166,7 +165,7 @@
       color: var(--mid); margin-bottom: 0.5rem;
     }
 
-    /* ── BUDGET CATEGORIES ── */
+    /* ── CATEGORIES ── */
     .cats-grid {
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
       border: 0.5px solid var(--border);
@@ -222,7 +221,7 @@
       background: var(--warm-white);
       border: 0.5px solid var(--border);
       display: flex; flex-direction: column;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
     }
     .product-card:hover {
       transform: translateY(-3px);
@@ -261,19 +260,9 @@
       padding-top: 1rem; border-top: 0.5px solid var(--border);
       margin-top: auto;
     }
-    
-    .product-price-container {
-      display: flex; flex-direction: column; gap: 2px;
+    .product-price {
+      font-family: var(--serif); font-size: 18px; color: var(--charcoal);
     }
-    .price-original {
-      font-size: 12px; text-decoration: line-through; color: var(--light);
-      font-family: var(--sans);
-    }
-    .price-discounted {
-      font-family: var(--serif); font-size: 20px; font-weight: 500;
-      color: var(--sale-red);
-    }
-    
     .btn-amazon {
       display: inline-flex; align-items: center; gap: 6px;
       background: transparent;
@@ -375,9 +364,9 @@
   <nav>
     <div class="nav-logo">The Daily Edit</div>
     <ul class="nav-links">
-      <li><a href="#picks" onclick="filterPrice('999')">Under ₹999</a></li>
-      <li><a href="#picks" onclick="filterPrice('1999')">₹1,000 - ₹1,999</a></li>
-      <li><a href="#picks" onclick="filterPrice('2999')">₹2,000 - ₹2,999</a></li>
+      <li><a href="#picks" onclick="filterCategory('blazers')">Blazers</a></li>
+      <li><a href="#picks" onclick="filterCategory('blouses')">Blouses</a></li>
+      <li><a href="#picks" onclick="filterCategory('trousers')">Trousers</a></li>
       <li><a href="#style-guide">Style guide</a></li>
     </ul>
     <div class="nav-right">
@@ -420,32 +409,32 @@
       <div class="section-header">
         <div>
           <p class="section-kicker">Browse</p>
-          <h2>Shop by Budget</h2>
+          <h2>Shop by category</h2>
         </div>
       </div>
       <div class="cats-grid">
-        <div class="cat-item" onclick="location.href='#picks'; filterPrice('999')">
+        <div class="cat-item" onclick="location.href='#picks'; filterCategory('blazers')">
           <div class="cat-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
           </div>
-          <div class="cat-name">Under ₹999</div>
-          <div class="cat-count">0 picks</div>
+          <div class="cat-name">Blazers</div>
+          <div class="cat-count">3 picks</div>
         </div>
-        <div class="cat-item" onclick="location.href='#picks'; filterPrice('1999')">
+        <div class="cat-item" onclick="location.href='#picks'; filterCategory('blouses')">
           <div class="cat-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3c-1 0-2 .5-2.5 1.5L4 6v2l2.5.5v10h11V8.5L20 8V6l-5.5-1.5C14 3.5 13 3 12 3z"/></svg>
           </div>
-          <div class="cat-name">₹1,000 - ₹1,999</div>
-          <div class="cat-count">3 picks</div>
+          <div class="cat-name">Blouses</div>
+          <div class="cat-count">1 pick</div>
         </div>
-        <div class="cat-item" onclick="location.href='#picks'; filterPrice('2999')">
+        <div class="cat-item" onclick="location.href='#picks'; filterCategory('trousers')">
           <div class="cat-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 2h12M6 22h12M7 2v20M17 2v20M7 12h10"/></svg>
           </div>
-          <div class="cat-name">₹2,000 - ₹2,999</div>
-          <div class="cat-count">2 picks</div>
+          <div class="cat-name">Trousers</div>
+          <div class="cat-count">1 pick</div>
         </div>
-        <div class="cat-item" style="border-right:none" onclick="location.href='#picks'; filterPrice('all')">
+        <div class="cat-item" style="border-right:none" onclick="location.href='#picks'; filterCategory('all')">
           <div class="cat-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
           </div>
@@ -466,105 +455,15 @@
       </div>
 
       <div class="filter-container">
-        <button class="filter-btn active" id="btn-all" onclick="filterPrice('all')">All Budgets</button>
-        <button class="filter-btn" id="btn-999" onclick="filterPrice('999')">Under ₹999</button>
-        <button class="filter-btn" id="btn-1999" onclick="filterPrice('1999')">₹1,000 - ₹1,999</button>
-        <button class="filter-btn" id="btn-2999" onclick="filterPrice('2999')">₹2,000 - ₹2,999</button>
+        <button class="filter-btn active" id="btn-all" onclick="filterCategory('all')">All Products</button>
+        <button class="filter-btn" id="btn-blazers" onclick="filterCategory('blazers')">Blazers Only</button>
+        <button class="filter-btn" id="btn-blouses" onclick="filterCategory('blouses')">Blouses</button>
+        <button class="filter-btn" id="btn-trousers" onclick="filterCategory('trousers')">Trousers</button>
       </div>
 
       <div class="products-grid" id="products-grid">
 
-        <div class="product-card" data-price-bucket="1999">
-          <div class="product-img">
-            <img src="image_d64caa.png" alt="Asymmetric Pleated Belted Blouse" />
-          </div>
-          <div class="product-body">
-            <p class="product-tag">Blouses</p>
-            <p class="product-name">Asymmetric Pleated Belted Blouse</p>
-            <p class="product-desc">A stunning draped neckline combined with an adjustable waist tie. Elevates any basic formal ensemble effortlessly.</p>
-            <div class="product-footer">
-              <div class="product-price-container">
-                <span class="price-original">₹2,999</span>
-                <span class="price-discounted">₹1,499</span>
-              </div>
-              <a href="https://a.co/d/01WJxnDz" target="_blank" rel="noopener sponsored" class="btn-amazon">
-                Amazon
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-price-bucket="1999">
-          <div class="product-img">
-            <img src="https://m.media-amazon.com/images/I/61S-M7tU1NL._AC_UL400_.jpg" alt="Wide-Leg High-Rise Trousers" />
-          </div>
-          <div class="product-body">
-            <p class="product-tag">Trousers</p>
-            <p class="product-name">Wide-Leg High-Rise Trousers</p>
-            <p class="product-desc">The trouser silhouette of the season. Full-length with a flattering high waist — smart without trying too hard.</p>
-            <div class="product-footer">
-              <div class="product-price-container">
-                <span class="price-original">₹3,499</span>
-                <span class="price-discounted">₹1,799</span>
-              </div>
-              <a href="https://a.co/d/030b56wh" target="_blank" rel="noopener sponsored" class="btn-amazon">
-                Amazon
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-price-bucket="1999">
-          <div class="product-img">
-            <a href="https://amzn.in/d/0ea5im8y" target="_blank" rel="noopener sponsored">
-              <img src="https://i.ibb.co/4gFnDqrN/image.png" alt="Sophisticated Notch-Lapel Blazer" />
-            </a>
-            <span class="product-badge">New Arrival</span>
-          </div>
-          <div class="product-body">
-            <p class="product-tag">Blazers</p>
-            <p class="product-name">Sophisticated Notch-Lapel Casual Blazer</p>
-            <p class="product-desc">Clean lines meet ultimate comfort. A minimalist silhouette designed to offer sharp corporate structure with all-day ease.</p>
-            <div class="product-footer">
-              <div class="product-price-container">
-                <span class="price-original">₹3,999</span>
-                <span class="price-discounted">₹1,899</span>
-              </div>
-              <a href="https://amzn.in/d/0ea5im8y" target="_blank" rel="noopener sponsored" class="btn-amazon">
-                Amazon
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-price-bucket="2999">
-          <div class="product-img">
-            <a href="https://amzn.in/d/04K9ZBS8" target="_blank" rel="noopener sponsored">
-              <img src="https://i.ibb.co/6cbHNBbB/image.png" alt="Elegant Plaid Structured Blazer" />
-            </a>
-            <span class="product-badge">Must Have</span>
-          </div>
-          <div class="product-body">
-            <p class="product-tag">Blazers</p>
-            <p class="product-name">Elegant Plaid Structured Blazer</p>
-            <p class="product-desc">Add classic texture to your work wardrobe. This subtly plaid smart-jacket pairs beautifully with high-rise dark denim or solid black trousers.</p>
-            <div class="product-footer">
-              <div class="product-price-container">
-                <span class="price-original">₹4,499</span>
-                <span class="price-discounted">₹2,199</span>
-              </div>
-              <a href="https://amzn.in/d/04K9ZBS8" target="_blank" rel="noopener sponsored" class="btn-amazon">
-                Amazon
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-price-bucket="2999">
+        <div class="product-card" data-category="blazers">
           <div class="product-img">
             <a href="https://amzn.in/d/0j9dFNSa" target="_blank" rel="noopener sponsored">
               <img src="https://i.ibb.co/9HwBz4mV/image-4296a5.png" alt="Tailored Double-Button Blazer" />
@@ -576,11 +475,86 @@
             <p class="product-name">Tailored Double-Button Blazer</p>
             <p class="product-desc">A structured blazer in a versatile neutral layout — pairs effortlessly with trousers or matching pencil skirts.</p>
             <div class="product-footer">
-              <div class="product-price-container">
-                <span class="price-original">₹4,999</span>
-                <span class="price-discounted">₹2,499</span>
-              </div>
+              <span class="product-price">Shop Now</span>
               <a href="https://amzn.in/d/0j9dFNSa" target="_blank" rel="noopener sponsored" class="btn-amazon">
+                Amazon
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="blazers">
+          <div class="product-img">
+            <a href="https://amzn.in/d/0ea5im8y" target="_blank" rel="noopener sponsored">
+              <img src="https://i.ibb.co/4gFnDqrN/image.png" alt="Sophisticated Notch-Lapel Blazer" />
+            </a>
+            <span class="product-badge">New Arrival</span>
+          </div>
+          <div class="product-body">
+            <p class="product-tag">Blazers</p>
+            <p class="product-name">Sophisticated Notch-Lapel Casual Blazer</p>
+            <p class="product-desc">Clean lines meet ultimate comfort. A minimalist silhouette designed to offer sharp corporate structure with all-day ease.</p>
+            <div class="product-footer">
+              <span class="product-price">Shop Now</span>
+              <a href="https://amzn.in/d/0ea5im8y" target="_blank" rel="noopener sponsored" class="btn-amazon">
+                Amazon
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="blazers">
+          <div class="product-img">
+            <a href="https://amzn.in/d/04K9ZBS8" target="_blank" rel="noopener sponsored">
+              <img src="https://i.ibb.co/6cbHNBbB/image.png" alt="Elegant Plaid Structured Blazer" />
+            </a>
+            <span class="product-badge">Must Have</span>
+          </div>
+          <div class="product-body">
+            <p class="product-tag">Blazers</p>
+            <p class="product-name">Elegant Plaid Structured Blazer</p>
+            <p class="product-desc">Add classic texture to your work wardrobe. This subtly plaid smart-jacket pairs beautifully with high-rise dark denim or solid black trousers.</p>
+            <div class="product-footer">
+              <span class="product-price">Shop Now</span>
+              <a href="https://amzn.in/d/04K9ZBS8" target="_blank" rel="noopener sponsored" class="btn-amazon">
+                Amazon
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="blouses">
+          <div class="product-img">
+            <img src="image_d64caa.png" alt="Asymmetric Pleated Belted Blouse" />
+          </div>
+          <div class="product-body">
+            <p class="product-tag">Blouses</p>
+            <p class="product-name">Asymmetric Pleated Belted Blouse</p>
+            <p class="product-desc">A stunning draped neckline combined with an adjustable waist tie. Elevates any basic formal ensemble effortlessly.</p>
+            <div class="product-footer">
+              <span class="product-price">Shop Now</span>
+              <a href="https://a.co/d/01WJxnDz" target="_blank" rel="noopener sponsored" class="btn-amazon">
+                Amazon
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="trousers">
+          <div class="product-img">
+            <img src="https://m.media-amazon.com/images/I/61S-M7tU1NL._AC_UL400_.jpg" alt="Wide-Leg High-Rise Trousers" />
+          </div>
+          <div class="product-body">
+            <p class="product-tag">Trousers</p>
+            <p class="product-name">Wide-Leg High-Rise Trousers</p>
+            <p class="product-desc">The trouser silhouette of the season. Full-length with a flattering high waist — smart without trying too hard.</p>
+            <div class="product-footer">
+              <span class="product-price">Shop Now</span>
+              <a href="https://a.co/d/030b56wh" target="_blank" rel="noopener sponsored" class="btn-amazon">
                 Amazon
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </a>
@@ -632,11 +606,11 @@
       <p>A curated guide to women's officewear on Amazon. We find the pieces worth wearing — you shop with confidence.</p>
     </div>
     <div class="footer-col">
-      <h4>Shop Budgets</h4>
+      <h4>Shop</h4>
       <ul>
-        <li><a href="#picks" onclick="filterPrice('999')">Under ₹999</a></li>
-        <li><a href="#picks" onclick="filterPrice('1999')">₹1,000 - ₹1,999</a></li>
-        <li><a href="#picks" onclick="filterPrice('2999')">₹2,000 - ₹2,999</a></li>
+        <li><a href="#picks" onclick="filterCategory('blazers')">Blazers</a></li>
+        <li><a href="#picks" onclick="filterCategory('blouses')">Blouses</a></li>
+        <li><a href="#picks" onclick="filterCategory('trousers')">Trousers</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -664,22 +638,23 @@
   </footer>
 
   <script>
-    function filterPrice(bucket) {
+    function filterCategory(category) {
+      // Find all product cards
       const cards = document.querySelectorAll('.product-card');
       
       cards.forEach(card => {
-        if (bucket === 'all' || card.getAttribute('data-price-bucket') === bucket) {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
         }
       });
 
-      // Update Active State on Filter Buttons
+      // Update Active State on Buttons
       const buttons = document.querySelectorAll('.filter-btn');
       buttons.forEach(btn => btn.classList.remove('active'));
       
-      const activeBtn = document.getElementById('btn-' + bucket);
+      const activeBtn = document.getElementById('btn-' + category);
       if(activeBtn) activeBtn.classList.add('active');
     }
   </script>
