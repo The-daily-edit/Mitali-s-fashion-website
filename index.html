@@ -118,6 +118,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
     .hero-tag {
       position: absolute; bottom: 2rem; left: 2rem;
@@ -385,7 +386,7 @@
       </a>
     </div>
     <div class="hero-right">
-      <img src="image_cbebc4.png" alt="Professional Office Blazer" class="hero-image" />
+      <img src="https://i.ibb.co/sJ61k8pN/Gemini-Generated-Image-8nypaq8nypaq8nyp.png" alt="Professional Office Blazer" class="hero-image" />
       <div class="hero-tag">
         <strong>Editor's pick of the week</strong>
         Tailored linen blazer — ₹2,899 on Amazon
@@ -639,7 +640,6 @@
 
   <script>
     function filterCategory(category) {
-      // Find all product cards
       const cards = document.querySelectorAll('.product-card');
       
       cards.forEach(card => {
@@ -650,7 +650,6 @@
         }
       });
 
-      // Update Active State on Buttons
       const buttons = document.querySelectorAll('.filter-btn');
       buttons.forEach(btn => btn.classList.remove('active'));
       
