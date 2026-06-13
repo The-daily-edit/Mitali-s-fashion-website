@@ -49,6 +49,7 @@
       font-family: var(--serif);
       font-size: 24px; font-weight: 400;
       letter-spacing: 0.06em;
+      cursor: pointer;
     }
     .nav-links {
       display: flex; gap: 2rem; list-style: none;
@@ -83,7 +84,103 @@
       display: block;
     }
 
-    /* ── HERO ── */
+    /* ── NEW HOMEPAGE HERO & GRID ── */
+    .home-hero {
+      text-align: center;
+      padding: 6rem 2rem 4rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .home-hero h1 {
+      font-family: var(--serif);
+      font-size: 52px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .home-hero .sub-headline {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-style: italic;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .home-hero p {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      padding-bottom: 6rem;
+    }
+    .category-card {
+      background: var(--warm-white);
+      border: 0.5px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s;
+    }
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 38px rgba(28,28,26,0.08);
+    }
+    .category-img {
+      height: 380px;
+      overflow: hidden;
+      background: var(--accent-light);
+      position: relative;
+    }
+    .category-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.5s ease;
+    }
+    .category-card:hover .category-img img {
+      transform: scale(1.03);
+    }
+    .category-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2rem 1.5rem;
+      background: linear-gradient(to top, rgba(28,28,26,0.85) 0%, rgba(28,28,26,0.4) 60%, transparent 100%);
+      color: var(--warm-white);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .category-title {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .category-action {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap 0.2s;
+    }
+    .category-card:hover .category-action {
+      gap: 8px;
+    }
+
+    /* ── STANDARD VERTICAL HEROS ── */
     .hero {
       display: grid; grid-template-columns: 1fr 1fr;
       min-height: 520px;
@@ -159,7 +256,7 @@
     }
 
     /* ── SECTIONS ── */
-    .container { max-width: 1080px; margin: 0 auto; padding: 0 3rem; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 3rem; }
     .section { padding: 5rem 0; }
     .section-header {
       display: flex; align-items: baseline; justify-content: space-between;
@@ -344,9 +441,10 @@
 <body>
 
   <nav>
-    <div class="nav-logo">The Daily Edit</div>
+    <div class="nav-logo" onclick="switchPage('home')">The Daily Edit</div>
     <ul class="nav-links">
-      <li><a id="nav-formal" class="active-nav" onclick="switchPage('formal')">Formal Wear</a></li>
+      <li><a id="nav-home" class="active-nav" onclick="switchPage('home')">Home</a></li>
+      <li><a id="nav-formal" onclick="switchPage('formal')">Formal Wear</a></li>
       <li><a id="nav-indian" onclick="switchPage('indian')">Indian Wear</a></li>
       <li><a id="nav-accessories" onclick="switchPage('accessories')">Accessories</a></li>
       <li><a id="nav-travel" onclick="switchPage('travel')">Travel</a></li>
@@ -366,8 +464,71 @@
     </div>
   </div>
 
+  <div id="page-home" class="page-content active-page">
+    <section class="home-hero">
+      <h1>The Daily Edit</h1>
+      <div class="sub-headline">Your Curated Daily Edit</div>
+      <p>Explore Our Verticals — Co-ord Sets | Formal | Ethnic | Essentials</p>
+    </section>
 
-  <div id="page-formal" class="page-content active-page">
+    <div class="container">
+      <div class="category-grid">
+        
+        <div class="category-card" onclick="switchPage('formal')">
+          <div class="category-img">
+            <img src="https://i.ibb.co/C3Z8f0DK/Gemini-Generated-Image-czsq87czsq87czsq.png" alt="Formal Wear Collection">
+          </div>
+          <div class="category-overlay">
+            <div class="category-title">Formal Wear</div>
+            <div class="category-action">View Collection &rarr;</div>
+          </div>
+        </div>
+
+        <div class="category-card" onclick="switchPage('indian')">
+          <div class="category-img">
+            <img src="https://m.media-amazon.com/images/I/91fzfXHjdoL._SX679_.jpg" alt="Indian Wear Collection">
+          </div>
+          <div class="category-overlay">
+            <div class="category-title">Indian Wear</div>
+            <div class="category-action">View Collection &rarr;</div>
+          </div>
+        </div>
+
+        <div class="category-card" onclick="switchPage('accessories')">
+          <div class="category-img">
+            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80" alt="Accessories Collection">
+          </div>
+          <div class="category-overlay">
+            <div class="category-title">Accessories</div>
+            <div class="category-action">View Collection &rarr;</div>
+          </div>
+        </div>
+
+        <div class="category-card" onclick="switchPage('travel')">
+          <div class="category-img">
+            <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=600&q=80" alt="Travel Collection">
+          </div>
+          <div class="category-overlay">
+            <div class="category-title">Travel</div>
+            <div class="category-action">View Collection &rarr;</div>
+          </div>
+        </div>
+
+        <div class="category-card" onclick="switchPage('picks')">
+          <div class="category-img">
+            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=600&q=80" alt="Amazon Top Picks">
+          </div>
+          <div class="category-overlay">
+            <div class="category-title">Amazon Picks</div>
+            <div class="category-action">View Collection &rarr;</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="page-formal" class="page-content">
     <section class="hero">
       <div class="hero-left">
         <p class="hero-kicker">Summer Capsule — Corporate Classics</p>
@@ -442,7 +603,6 @@
     </section>
   </div>
 
-
   <div id="page-indian" class="page-content">
     <section class="hero">
       <div class="hero-left">
@@ -500,7 +660,6 @@
     </section>
   </div>
 
-
   <div id="page-accessories" class="page-content">
     <section class="hero">
       <div class="hero-left">
@@ -519,7 +678,6 @@
       </div>
     </section>
   </div>
-
 
   <div id="page-travel" class="page-content">
     <section class="hero">
@@ -540,7 +698,6 @@
     </section>
   </div>
 
-
   <div id="page-picks" class="page-content">
     <section class="hero">
       <div class="hero-left">
@@ -559,7 +716,6 @@
       </div>
     </section>
   </div>
-
 
   <section class="editorial" id="style-guide">
     <div class="container">
@@ -589,7 +745,7 @@
 
   <footer id="about">
     <div class="footer-brand">
-      <div class="logo">The Daily Edit</div>
+      <div class="logo" onclick="switchPage('home')">The Daily Edit</div>
       <p>A curated directory across lifestyle verticals on Amazon. We clear the noise — you shop with confidence.</p>
     </div>
     <div class="footer-col">
