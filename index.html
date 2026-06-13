@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Daily Edit — Women's Officewear</title>
+  <title>The Daily Edit — Curated Wardrobe</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -43,23 +43,29 @@
       border-bottom: 0.5px solid var(--border);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 3rem;
-      height: 64px;
+      height: 74px;
     }
     .nav-logo {
       font-family: var(--serif);
-      font-size: 22px; font-weight: 400;
+      font-size: 24px; font-weight: 400;
       letter-spacing: 0.06em;
     }
     .nav-links {
-      display: flex; gap: 2.5rem; list-style: none;
+      display: flex; gap: 2rem; list-style: none;
     }
     .nav-links a {
-      font-size: 12px; font-weight: 400;
+      font-size: 11px; font-weight: 500;
       letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--mid);
       transition: color 0.2s;
+      cursor: pointer;
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
     }
-    .nav-links a:hover { color: var(--charcoal); }
+    .nav-links a:hover, .nav-links a.active-nav { 
+      color: var(--charcoal); 
+      border-bottom: 1px solid var(--charcoal);
+    }
     .nav-right {
       display: flex; gap: 1.2rem; align-items: center;
     }
@@ -68,6 +74,14 @@
       color: var(--mid); transition: color 0.2s;
     }
     .nav-right a:hover { color: var(--charcoal); }
+
+    /* ── DYNAMIC PAGE VISIBILITY ── */
+    .page-content {
+      display: none;
+    }
+    .page-content.active-page {
+      display: block;
+    }
 
     /* ── HERO ── */
     .hero {
@@ -103,7 +117,7 @@
       padding: 13px 28px;
       font-family: var(--sans); font-size: 12px;
       letter-spacing: 0.1em; text-transform: uppercase;
-      border: none; cursor: pointer;
+      border: none; cursor: pointer; width: max-content;
       transition: background 0.2s, transform 0.15s;
     }
     .btn-primary:hover { background: #2e2e2b; transform: translateY(-1px); }
@@ -116,13 +130,12 @@
       justify-content: center;
       padding: 2rem;
       height: 100%;
-      max-height: 560px; /* Prevents the image container from blowing out vertically */
+      max-height: 560px;
     }
     .hero-image {
-      width: 100%;
-      height: 100%;
-      max-height: 500px; /* Restricts height so it scales down cleanly */
-      object-fit: contain; /* Forces the entire image to stay visible without cropping */
+      width: 100%; height: 100%;
+      max-height: 500px;
+      object-fit: contain;
       display: block;
     }
 
@@ -162,35 +175,6 @@
       color: var(--mid); margin-bottom: 0.5rem;
     }
 
-    /* ── CATEGORIES ── */
-    .cats-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-      border: 0.5px solid var(--border);
-    }
-    .cat-item {
-      background: var(--warm-white);
-      padding: 2.5rem 1.5rem;
-      display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem;
-      border-right: 0.5px solid var(--border);
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .cat-item:last-child { border-right: none; }
-    .cat-item:hover { background: var(--accent-light); }
-    .cat-icon {
-      width: 36px; height: 36px;
-      background: var(--cream);
-      border: 0.5px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .cat-icon svg { width: 18px; height: 18px; color: var(--accent); }
-    .cat-name {
-      font-family: var(--serif); font-size: 20px; font-weight: 400;
-    }
-    .cat-count {
-      font-size: 11px; letter-spacing: 0.08em; color: var(--mid);
-    }
-
     /* ── INTERACTIVE FILTER BUTTONS ── */
     .filter-container {
       display: flex; gap: 1rem; margin-bottom: 2.5rem; justify-content: flex-start;
@@ -219,7 +203,7 @@
       background: var(--warm-white);
       border: 0.5px solid var(--border);
       display: flex; flex-direction: column;
-      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
     .product-card:hover {
       transform: translateY(-3px);
@@ -341,7 +325,7 @@
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
     .footer-col ul li a {
       font-size: 13px; color: var(--mid);
-      transition: color 0.2s;
+      transition: color 0.2s; cursor: pointer;
     }
     .footer-col ul li a:hover { color: var(--charcoal); }
     .footer-bottom {
@@ -349,48 +333,26 @@
       padding-top: 2rem; border-top: 0.5px solid var(--border);
       display: flex; align-items: center; justify-content: space-between;
     }
-    .footer-bottom p {
-      font-size: 12px; color: var(--light);
-    }
-    .affiliate-notice {
-      font-size: 12px; color: var(--light); max-width: 480px; text-align: right;
-    }
+    .footer-bottom p { font-size: 12px; color: var(--light); }
+    .affiliate-notice { font-size: 12px; color: var(--light); max-width: 480px; text-align: right; }
 
     /* ── RESPONSIVE MEDIA QUERIES ── */
     @media (max-width: 900px) {
-      nav { padding: 0 1.5rem; }
-      .nav-links { display: none; } /* Standard simplified mobile navigation strategy */
-      
-      .hero { grid-template-columns: 1fr; text-align: center; min-height: auto; }
-      .hero-left { padding: 4rem 1.5rem 2rem 1.5rem; align-items: center; }
-      .hero-left h1 { font-size: 40px; }
-      .hero-left p { max-width: 100%; }
-      .hero-right { max-height: 380px; padding: 1rem 1.5rem 3rem 1.5rem; }
-      
-      .container { padding: 0 1.5rem; }
-      .section { padding: 3.5rem 0; }
-      
-      .cats-grid { grid-template-columns: repeat(2, 1fr); }
-      .cat-item { border-right: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); }
-      .cat-item:nth-child(2n) { border-right: none; }
-      
+      nav { padding: 0 1.5rem; flex-direction: column; height: auto; padding-bottom: 1rem; gap: 0.5rem; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .hero-left { padding: 3rem 1.5rem 1rem 1.5rem; align-items: center; }
+      .hero-left h1 { font-size: 36px; }
+      .hero-right { max-height: 300px; }
       .products-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-      
       .editorial .container { grid-template-columns: 1fr; gap: 3rem; }
-      .editorial-text { text-align: center; }
-      
-      footer { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.5rem; text-align: center; }
-      .footer-brand p { max-width: 100%; margin: 0 auto; }
-      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+      footer { grid-template-columns: 1fr; text-align: center; }
+      .footer-brand p { margin: 0 auto; }
+      .footer-bottom { flex-direction: column; gap: 1rem; }
       .affiliate-notice { text-align: center; }
     }
-
     @media (max-width: 600px) {
-      .cats-grid { grid-template-columns: 1fr; }
-      .cat-item { border-right: none !important; }
       .products-grid { grid-template-columns: 1fr; }
-      .filter-container { justify-content: center; gap: 0.5rem; }
-      .filter-btn { padding: 6px 14px; font-size: 10px; width: 47%; text-align: center; }
     }
   </style>
 </head>
@@ -399,201 +361,204 @@
   <nav>
     <div class="nav-logo">The Daily Edit</div>
     <ul class="nav-links">
-      <li><a href="#picks" onclick="filterCategory('blazers')">Blazers</a></li>
-      <li><a href="#picks" onclick="filterCategory('blouses')">Blouses</a></li>
-      <li><a href="#picks" onclick="filterCategory('trousers')">Trousers</a></li>
-      <li><a href="#style-guide">Style guide</a></li>
+      <li><a id="nav-formal" class="active-nav" onclick="switchPage('formal')">Formal Wear</a></li>
+      <li><a id="nav-indian" onclick="switchPage('indian')">Indian Wear</a></li>
+      <li><a id="nav-accessories" onclick="switchPage('accessories')">Accessories</a></li>
+      <li><a id="nav-travel" onclick="switchPage('travel')">Travel</a></li>
+      <li><a id="nav-picks" onclick="switchPage('picks')">Amazon Picks</a></li>
     </ul>
     <div class="nav-right">
       <a href="#about">About</a>
     </div>
   </nav>
 
-  <section class="hero">
-    <div class="hero-left">
-      <p class="hero-kicker">Summer 2026 — curated officewear</p>
-      <h1>Dress for the role you <em>want.</em></h1>
-      <p>Handpicked officewear for the modern professional woman. Every piece is tried, tested, and linked directly to Amazon — no faff, just great finds.</p>
-      <a href="#picks" class="btn-primary">
-        Shop the edit
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
-      </a>
-    </div>
-    <div class="hero-right">
-      <img src="https://i.ibb.co/sJ61k8pN/Gemini-Generated-Image-8nypaq8nypaq8nyp.png" alt="Professional Office Blazer" class="hero-image" />
-    </div>
-  </section>
-
   <div class="ticker" aria-hidden="true">
     <div class="ticker-inner">
-      <span><em>New picks every Tuesday</em> &nbsp;·&nbsp;</span>
-      <span>Amazon affiliate links — we earn a small commission at no extra cost to you &nbsp;·&nbsp;</span>
-      <span><em>New picks every Tuesday</em> &nbsp;·&nbsp;</span>
-      <span>Amazon affiliate links — we earn a small commission at no extra cost to you &nbsp;·&nbsp;</span>
+      <span><em>New curated edits weekly</em> &nbsp;·&nbsp;</span>
+      <span>Amazon affiliate links — we earn a small commission &nbsp;·&nbsp;</span>
+      <span><em>New curated edits weekly</em> &nbsp;·&nbsp;</span>
+      <span>Amazon affiliate links — we earn a small commission &nbsp;·&nbsp;</span>
     </div>
   </div>
 
-  <section class="section" id="categories">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <p class="section-kicker">Browse</p>
-          <h2>Shop by category</h2>
-        </div>
-      </div>
-      <div class="cats-grid">
-        <div class="cat-item" onclick="location.href='#picks'; filterCategory('blazers')">
-          <div class="cat-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
-          </div>
-          <div class="cat-name">Blazers</div>
-          <div class="cat-count">3 picks</div>
-        </div>
-        <div class="cat-item" onclick="location.href='#picks'; filterCategory('blouses')">
-          <div class="cat-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3c-1 0-2 .5-2.5 1.5L4 6v2l2.5.5v10h11V8.5L20 8V6l-5.5-1.5C14 3.5 13 3 12 3z"/></svg>
-          </div>
-          <div class="cat-name">Blouses</div>
-          <div class="cat-count">1 pick</div>
-        </div>
-        <div class="cat-item" onclick="location.href='#picks'; filterCategory('trousers')">
-          <div class="cat-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 2h12M6 22h12M7 2v20M17 2v20M7 12h10"/></svg>
-          </div>
-          <div class="cat-name">Trousers</div>
-          <div class="cat-count">1 pick</div>
-        </div>
-        <div class="cat-item" style="border-right:none" onclick="location.href='#picks'; filterCategory('all')">
-          <div class="cat-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-          </div>
-          <div class="cat-name">Show All</div>
-          <div class="cat-count">5 items</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="section" id="picks" style="padding-top:0">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <p class="section-kicker">Curated</p>
-          <h2>The Collection</h2>
+  <div id="page-formal" class="page-content active-page">
+    <section class="hero">
+      <div class="hero-left">
+        <p class="hero-kicker">Summer 2026 — Corporate Capsule</p>
+        <h1>Dress for the role you <em>want.</em></h1>
+        <p>Handpicked corporate essentials for the modern professional woman. Every piece is tailored to perfection.</p>
+        <a href="#formal-grid-anchor" class="btn-primary">Shop Formal Wear</a>
+      </div>
+      <div class="hero-right">
+        <img src="https://i.ibb.co/sJ61k8pN/Gemini-Generated-Image-8nypaq8nypaq8nyp.png" alt="Formal Blazer" class="hero-image" />
+      </div>
+    </section>
+
+    <section class="section" id="formal-grid-anchor">
+      <div class="container">
+        <div class="filter-container">
+          <button class="filter-btn active" onclick="filterCategory('all', 'page-formal', this)">All</button>
+          <button class="filter-btn" onclick="filterCategory('blazers', 'page-formal', this)">Blazers</button>
+          <button class="filter-btn" onclick="filterCategory('trousers', 'page-formal', this)">Trousers</button>
         </div>
-      </div>
-
-      <div class="filter-container">
-        <button class="filter-btn active" id="btn-all" onclick="filterCategory('all')">All Products</button>
-        <button class="filter-btn" id="btn-blazers" onclick="filterCategory('blazers')">Blazers Only</button>
-        <button class="filter-btn" id="btn-blouses" onclick="filterCategory('blouses')">Blouses</button>
-        <button class="filter-btn" id="btn-trousers" onclick="filterCategory('trousers')">Trousers</button>
-      </div>
-
-      <div class="products-grid" id="products-grid">
-
-        <div class="product-card" data-category="blazers">
-          <div class="product-img">
-            <a href="https://amzn.in/d/0j9dFNSa" target="_blank" rel="noopener sponsored">
-              <img src="https://i.ibb.co/9HwBz4mV/image-4296a5.png" alt="Tailored Double-Button Blazer" />
-            </a>
-            <span class="product-badge">Editor's pick</span>
+        <div class="products-grid">
+          <div class="product-card" data-category="blazers">
+            <div class="product-img"><img src="https://i.ibb.co/9HwBz4mV/image-4296a5.png" alt="Blazer"></div>
+            <div class="product-body">
+              <p class="product-tag">Blazers</p>
+              <p class="product-name">Tailored Double-Button Blazer</p>
+              <p class="product-desc">A structured blazer in a versatile layout — pairs effortlessly with trousers.</p>
+              <div class="product-footer"><span class="product-price">Shop Now</span><a href="https://amzn.in/d/0j9dFNSa" target="_blank" class="btn-amazon">Amazon</a></div>
+            </div>
           </div>
-          <div class="product-body">
-            <p class="product-tag">Blazers</p>
-            <p class="product-name">Tailored Double-Button Blazer</p>
-            <p class="product-desc">A structured blazer in a versatile neutral layout — pairs effortlessly with trousers or matching pencil skirts.</p>
-            <div class="product-footer">
-              <span class="product-price">Shop Now</span>
-              <a href="https://amzn.in/d/0j9dFNSa" target="_blank" rel="noopener sponsored" class="btn-amazon">
-                Amazon
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
+          <div class="product-card" data-category="trousers">
+            <div class="product-img"><img src="https://m.media-amazon.com/images/I/61S-M7tU1NL._AC_UL400_.jpg" alt="Trousers"></div>
+            <div class="product-body">
+              <p class="product-tag">Trousers</p>
+              <p class="product-name">Wide-Leg High-Rise Trousers</p>
+              <p class="product-desc">The perfect structural tailored silhouette for everyday corporate assignments.</p>
+              <div class="product-footer"><span class="product-price">Shop Now</span><a href="https://a.co/d/030b56wh" target="_blank" class="btn-amazon">Amazon</a></div>
             </div>
           </div>
         </div>
-
-        <div class="product-card" data-category="blazers">
-          <div class="product-img">
-            <a href="https://amzn.in/d/0ea5im8y" target="_blank" rel="noopener sponsored">
-              <img src="https://i.ibb.co/4gFnDqrN/image.png" alt="Sophisticated Notch-Lapel Blazer" />
-            </a>
-            <span class="product-badge">New Arrival</span>
-          </div>
-          <div class="product-body">
-            <p class="product-tag">Blazers</p>
-            <p class="product-name">Sophisticated Notch-Lapel Casual Blazer</p>
-            <p class="product-desc">Clean lines meet ultimate comfort. A minimalist silhouette designed to offer sharp corporate structure with all-day ease.</p>
-            <div class="product-footer">
-              <span class="product-price">Shop Now</span>
-              <a href="https://amzn.in/d/0ea5im8y" target="_blank" rel="noopener sponsored" class="btn-amazon">
-                Amazon
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-category="blazers">
-          <div class="product-img">
-            <a href="https://amzn.in/d/04K9ZBS8" target="_blank" rel="noopener sponsored">
-              <img src="https://i.ibb.co/6cbHNBbB/image.png" alt="Elegant Plaid Structured Blazer" />
-            </a>
-            <span class="product-badge">Must Have</span>
-          </div>
-          <div class="product-body">
-            <p class="product-tag">Blazers</p>
-            <p class="product-name">Elegant Plaid Structured Blazer</p>
-            <p class="product-desc">Add classic texture to your work wardrobe. This subtly plaid smart-jacket pairs beautifully with high-rise dark denim or solid black trousers.</p>
-            <div class="product-footer">
-              <span class="product-price">Shop Now</span>
-              <a href="https://amzn.in/d/04K9ZBS8" target="_blank" rel="noopener sponsored" class="btn-amazon">
-                Amazon
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-category="blouses">
-          <div class="product-img">
-            <img src="image_d64caa.png" alt="Asymmetric Pleated Belted Blouse" />
-          </div>
-          <div class="product-body">
-            <p class="product-tag">Blouses</p>
-            <p class="product-name">Asymmetric Pleated Belted Blouse</p>
-            <p class="product-desc">A stunning draped neckline combined with an adjustable waist tie. Elevates any basic formal ensemble effortlessly.</p>
-            <div class="product-footer">
-              <span class="product-price">Shop Now</span>
-              <a href="https://a.co/d/01WJxnDz" target="_blank" rel="noopener sponsored" class="btn-amazon">
-                Amazon
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-category="trousers">
-          <div class="product-img">
-            <img src="https://m.media-amazon.com/images/I/61S-M7tU1NL._AC_UL400_.jpg" alt="Wide-Leg High-Rise Trousers" />
-          </div>
-          <div class="product-body">
-            <p class="product-tag">Trousers</p>
-            <p class="product-name">Wide-Leg High-Rise Trousers</p>
-            <p class="product-desc">The trouser silhouette of the season. Full-length with a flattering high waist — smart without trying too hard.</p>
-            <div class="product-footer">
-              <span class="product-price">Shop Now</span>
-              <a href="https://a.co/d/030b56wh" target="_blank" rel="noopener sponsored" class="btn-amazon">
-                Amazon
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
+
+
+  <div id="page-indian" class="page-content">
+    <section class="hero">
+      <div class="hero-left">
+        <p class="hero-kicker">Summer 2026 — Modern Ethnic</p>
+        <h1>Elegant silhouettes for <em>everyday</em> comfort.</h1>
+        <p>Curated modern kurtas, elegant coordinates, and contemporary luxury ethnic items for festive or office styles.</p>
+        <a href="#indian-grid-anchor" class="btn-primary">Shop Ethnic Wear</a>
+      </div>
+      <div class="hero-right">
+        <img src="https://m.media-amazon.com/images/I/61S-M7tU1NL._AC_UL400_.jpg" alt="Indian Wear Banner" class="hero-image" />
+      </div>
+    </section>
+
+    <section class="section" id="indian-grid-anchor">
+      <div class="container">
+        <div class="filter-container">
+          <button class="filter-btn active" onclick="filterCategory('all', 'page-indian', this)">All</button>
+          <button class="filter-btn" onclick="filterCategory('kurtas', 'page-indian', this)">Kurtas</button>
+          <button class="filter-btn" onclick="filterCategory('sets', 'page-indian', this)">Co-ord Sets</button>
+        </div>
+        <div class="products-grid">
+          <div class="product-card" data-category="kurtas">
+            <div class="product-img"><img src="https://i.ibb.co/4gFnDqrN/image.png" alt="A-Line Kurta"></div>
+            <div class="product-body">
+              <p class="product-tag">Kurtas</p>
+              <p class="product-name">Pure Cotton A-Line Indigo Kurta</p>
+              <p class="product-desc">Breathable organic fabric combined with deep artisan palette layout structures.</p>
+              <div class="product-footer"><span class="product-price">Shop Now</span><a href="#" class="btn-amazon">Amazon</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <div id="page-accessories" class="page-content">
+    <section class="hero">
+      <div class="hero-left">
+        <p class="hero-kicker">The Finishing Touches</p>
+        <h1>Details that define <em>your look.</em></h1>
+        <p>From leather totes to classic timeless timepieces. The minimalist accessories worth investing your time into.</p>
+        <a href="#acc-grid-anchor" class="btn-primary">Shop Accessories</a>
+      </div>
+      <div class="hero-right">
+        <img src="https://i.ibb.co/6cbHNBbB/image.png" alt="Accessories Layout" class="hero-image" />
+      </div>
+    </section>
+
+    <section class="section" id="acc-grid-anchor">
+      <div class="container">
+        <div class="filter-container">
+          <button class="filter-btn active" onclick="filterCategory('all', 'page-accessories', this)">All Bags & Jewelry</button>
+          <button class="filter-btn" onclick="filterCategory('bags', 'page-accessories', this)">Bags</button>
+        </div>
+        <div class="products-grid">
+          <div class="product-card" data-category="bags">
+            <div class="product-img"><img src="https://i.ibb.co/6cbHNBbB/image.png" alt="Structured Tote"></div>
+            <div class="product-body">
+              <p class="product-tag">Bags</p>
+              <p class="product-name">Structured Saffiano Leather Tote</p>
+              <p class="product-desc">Fits a 15-inch laptop securely with dedicated interior organizational spaces.</p>
+              <div class="product-footer"><span class="product-price">Shop Now</span><a href="#" class="btn-amazon">Amazon</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <div id="page-travel" class="page-content">
+    <section class="hero">
+      <div class="hero-left">
+        <p class="hero-kicker">Jetset Curated</p>
+        <h1>Travel effortlessly, <em>arrive styled.</em></h1>
+        <p>Wrinkle-free fabrics, packing organizers, and jet-ready accessories optimized for style on the move.</p>
+        <a href="#travel-grid-anchor" class="btn-primary">Shop Travel Edit</a>
+      </div>
+      <div class="hero-right">
+        <img src="https://i.ibb.co/9HwBz4mV/image-4296a5.png" alt="Travel Capsule" class="hero-image" />
+      </div>
+    </section>
+
+    <section class="section" id="travel-grid-anchor">
+      <div class="container">
+        <div class="products-grid">
+          <div class="product-card" data-category="all">
+            <div class="product-img"><img src="https://i.ibb.co/9HwBz4mV/image-4296a5.png" alt="Travel Set"></div>
+            <div class="product-body">
+              <p class="product-tag">Luggage</p>
+              <p class="product-name">Lightweight Spinner Carry-On</p>
+              <p class="product-desc">Hard-shell durable polycarbonate casing with minimal scuff profile finish.</p>
+              <div class="product-footer"><span class="product-price">Shop Now</span><a href="#" class="btn-amazon">Amazon</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <div id="page-picks" class="page-content">
+    <section class="hero">
+      <div class="hero-left">
+        <p class="hero-kicker">Best Sellers</p>
+        <h1>The internet's <em>absolute favorites.</em></h1>
+        <p>Highest rated, viral products backed entirely by verified consumer metrics and active reviews.</p>
+        <a href="#picks-grid-anchor" class="btn-primary">Explore Top Picks</a>
+      </div>
+      <div class="hero-right">
+        <img src="https://i.ibb.co/4gFnDqrN/image.png" alt="Viral Products" class="hero-image" />
+      </div>
+    </section>
+
+    <section class="section" id="picks-grid-anchor">
+      <div class="container">
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-img"><img src="https://i.ibb.co/4gFnDqrN/image.png" alt="Top Pick Asset"></div>
+            <div class="product-body">
+              <p class="product-tag">Viral Styling</p>
+              <p class="product-name">Gold Plated Chunky Hoop Earrings</p>
+              <p class="product-desc">Lightweight design, hypoallergenic properties, with over 15,000 positive global ratings.</p>
+              <div class="product-footer"><span class="product-price">Shop Now</span><a href="#" class="btn-amazon">Amazon</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
 
   <section class="editorial" id="style-guide">
     <div class="container">
@@ -601,28 +566,20 @@
         <p class="kicker">Style guide</p>
         <h2>Build a capsule wardrobe that <em>actually</em> works.</h2>
         <p>You don't need a full wardrobe refresh. You need ten pieces that do thirty jobs. Here's how we think about it.</p>
-        <a href="#about" class="btn-outline">Read style guide →</a>
       </div>
       <div class="editorial-tips">
         <div class="tip">
           <div class="tip-num">01</div>
           <div class="tip-content">
             <strong>Anchor in neutrals</strong>
-            <p>Build on black, navy, beige, and ivory. Every piece should work with at least three others in your wardrobe.</p>
+            <p>Build on black, navy, beige, and ivory. Every piece should work with at least three others.</p>
           </div>
         </div>
         <div class="tip">
           <div class="tip-num">02</div>
           <div class="tip-content">
             <strong>Invest in versatile cuts</strong>
-            <p>A well-cut blazer can take you from a 9am meeting to a 7pm dinner. Prioritise pieces that earn their place.</p>
-          </div>
-        </div>
-        <div class="tip">
-          <div class="tip-num">03</div>
-          <div class="tip-content">
-            <strong>Quality over quantity</strong>
-            <p>Ten pieces that fit perfectly outperform thirty that don't. Always check Amazon reviews and the size guide.</p>
+            <p>A well-cut garment takes you anywhere effortlessly.</p>
           </div>
         </div>
       </div>
@@ -632,44 +589,70 @@
   <footer id="about">
     <div class="footer-brand">
       <div class="logo">The Daily Edit</div>
-      <p>A curated guide to women's officewear on Amazon. We find the pieces worth wearing — you shop with confidence.</p>
+      <p>A curated directory across lifestyle verticals on Amazon. We clear the noise — you shop with confidence.</p>
     </div>
     <div class="footer-col">
-      <h4>Shop</h4>
+      <h4>Verticals</h4>
       <ul>
-        <li><a href="#picks" onclick="filterCategory('blazers')">Blazers</a></li>
-        <li><a href="#picks" onclick="filterCategory('blouses')">Blouses</a></li>
-        <li><a href="#picks" onclick="filterCategory('trousers')">Trousers</a></li>
+        <li><a onclick="switchPage('formal')">Formal Wear</a></li>
+        <li><a onclick="switchPage('indian')">Indian Wear</a></li>
+        <li><a onclick="switchPage('accessories')">Accessories</a></li>
+        <li><a onclick="switchPage('travel')">Travel</a></li>
+        <li><a onclick="switchPage('picks')">Amazon Picks</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Guides</h4>
       <ul>
-        <li><a href="#">Capsule wardrobe</a></li>
-        <li><a href="#">Business casual</a></li>
-        <li><a href="#">Smart formal</a></li>
-        <li><a href="#">Work from home</a></li>
+        <li><a href="#">Capsule Wardrobe</a></li>
+        <li><a href="#">Business Casual</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Info</h4>
       <ul>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Affiliate disclosure</a></li>
-        <li><a href="#">Privacy policy</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Affiliate Disclosure</a></li>
       </ul>
     </div>
     <div class="footer-bottom">
       <p>© 2026 The Daily Edit. All rights reserved.</p>
-      <p class="affiliate-notice">As an Amazon Associate we earn from qualifying purchases. Prices shown are approximate and may vary.</p>
+      <p class="affiliate-notice">As an Amazon Associate we earn from qualifying purchases.</p>
     </div>
   </footer>
 
   <script>
-    function filterCategory(category) {
-      const cards = document.querySelectorAll('.product-card');
+    // 1. Manages dynamic page/tab switching
+    function switchPage(pageTargetId) {
+      // Hide all pages
+      const pages = document.querySelectorAll('.page-content');
+      pages.forEach(page => page.classList.remove('active-page'));
+
+      // Show requested page
+      const targetPage = document.getElementById('page-' + pageTargetId);
+      if(targetPage) {
+        targetPage.classList.add('active-page');
+      }
+
+      // Sync Navigation Link Style Highlight Status
+      const navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(link => link.classList.remove('active-nav'));
       
+      const targetNavLink = document.getElementById('nav-' + pageTargetId);
+      if(targetNavLink) {
+        targetNavLink.classList.add('active-nav');
+      }
+
+      // Auto-Scroll up clean presentation window display switch
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    // 2. Manages specific sub-category card grid isolation within an active target container page scope
+    function filterCategory(category, containerId, dynamicButtonReference) {
+      const parentContainer = document.getElementById(containerId);
+      if(!parentContainer) return;
+
+      const cards = parentContainer.querySelectorAll('.product-card');
       cards.forEach(card => {
         if (category === 'all' || card.getAttribute('data-category') === category) {
           card.style.display = 'flex';
@@ -678,11 +661,12 @@
         }
       });
 
-      const buttons = document.querySelectorAll('.filter-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
-      
-      const activeBtn = document.getElementById('btn-' + category);
-      if(activeBtn) activeBtn.classList.add('active');
+      // Toggle Active States on Buttons inside specific scoped filter blocks
+      const localFilterButtons = parentContainer.querySelectorAll('.filter-btn');
+      localFilterButtons.forEach(btn => btn.classList.remove('active'));
+      if(dynamicButtonReference) {
+        dynamicButtonReference.classList.add('active');
+      }
     }
   </script>
 
