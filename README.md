@@ -1,2 +1,2 @@
-# The Daily Edit
-It's an officewear fashion website
+# The Chic Daily Studio
+Intentional essentials for your everyday life.
