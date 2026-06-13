@@ -121,7 +121,6 @@
       transition: background 0.2s, transform 0.15s;
     }
     .btn-primary:hover { background: #2e2e2b; transform: translateY(-1px); }
-    .btn-primary svg { width: 14px; height: 14px; }
 
     .hero-right {
       background: transparent;
@@ -170,10 +169,6 @@
       font-family: var(--serif);
       font-size: 32px; font-weight: 400;
     }
-    .section-kicker {
-      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--mid); margin-bottom: 0.5rem;
-    }
 
     /* ── INTERACTIVE FILTER BUTTONS ── */
     .filter-container {
@@ -211,12 +206,13 @@
     }
     .product-img {
       background: var(--accent-light);
-      height: 280px;
+      height: 340px;
       display: flex; align-items: center; justify-content: center;
       border-bottom: 0.5px solid var(--border);
       position: relative;
+      overflow: hidden;
     }
-    .product-img img { width: 100%; height: 100%; object-fit: cover; }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
     .product-badge {
       position: absolute; top: 1rem; left: 1rem;
       background: var(--charcoal); color: var(--cream);
@@ -256,7 +252,6 @@
       transition: background 0.18s, color 0.18s;
     }
     .btn-amazon:hover { background: var(--charcoal); color: var(--cream); }
-    .btn-amazon svg { width: 12px; height: 12px; }
 
     /* ── EDITORIAL STRIP ── */
     .editorial {
@@ -279,16 +274,6 @@
     .editorial-text p {
       font-size: 15px; color: var(--light); line-height: 1.8; margin-bottom: 2rem;
     }
-    .btn-outline {
-      display: inline-flex; align-items: center; gap: 10px;
-      border: 0.5px solid rgba(255,255,255,0.3);
-      color: var(--cream);
-      padding: 12px 26px;
-      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-      cursor: pointer; background: transparent;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .btn-outline:hover { border-color: var(--cream); background: rgba(255,255,255,0.05); }
     .editorial-tips { display: flex; flex-direction: column; gap: 1.5rem; }
     .tip {
       display: flex; gap: 1.25rem; align-items: flex-start;
@@ -385,13 +370,13 @@
   <div id="page-formal" class="page-content active-page">
     <section class="hero">
       <div class="hero-left">
-        <p class="hero-kicker">Summer 2026 — Corporate Capsule</p>
+        <p class="hero-kicker">Summer Capsule — Corporate Classics</p>
         <h1>Dress for the role you <em>want.</em></h1>
         <p>Handpicked corporate essentials for the modern professional woman. Every piece is tailored to perfection.</p>
         <a href="#formal-grid-anchor" class="btn-primary">Shop Formal Wear</a>
       </div>
       <div class="hero-right">
-        <img src="https://i.ibb.co/sJ61k8pN/Gemini-Generated-Image-8nypaq8nypaq8nyp.png" alt="Formal Blazer" class="hero-image" />
+        <img src="https://m.media-amazon.com/images/I/71DsJE6dvzL._SX679_.jpg" alt="Featured Corporate Layer" class="hero-image" />
       </div>
     </section>
 
@@ -406,7 +391,7 @@
 
           <div class="product-card" data-category="blazers">
             <div class="product-img">
-              <img src="https://m.media-amazon.com/images/I/61S-M7tU1NL._AC_UL400_.jpg" alt="Premium Grey Work Wear Jacket">
+              <img src="https://m.media-amazon.com/images/I/71DsJE6dvzL._SX679_.jpg" alt="Premium Grey Work Wear Jacket">
               <span class="product-badge">Editor's Pick</span>
             </div>
             <div class="product-body">
@@ -422,7 +407,7 @@
 
           <div class="product-card" data-category="blazers">
             <div class="product-img">
-              <img src="https://m.media-amazon.com/images/I/61S-M7tU1NL._AC_UL400_.jpg" alt="Open Front Blazer">
+              <img src="https://m.media-amazon.com/images/I/81QAH8IxuXL._SX679_.jpg" alt="Open Front Blazer">
               <span class="product-badge">Best Seller</span>
             </div>
             <div class="product-body">
@@ -438,16 +423,16 @@
 
           <div class="product-card" data-category="sets">
             <div class="product-img">
-              <img src="https://m.media-amazon.com/images/I/61S-M7tU1NL._AC_UL400_.jpg" alt="GRECIILOOKS Co ord Set">
+              <img src="https://m.media-amazon.com/images/I/81XiluC8JdL._SX679_.jpg" alt="GRECIILOOKS Co ord Set">
               <span class="product-badge">Multipurpose</span>
             </div>
             <div class="product-body">
               <p class="product-tag">Co-ord Sets</p>
               <p class="product-name">GRECIILOOKS Co ord Set</p>
-              <p class="product-desc">The ultimate chameleon piece. A beautiful matching silhouette engineered to blend into desk-to-dinner timelines or casual vacation itineraries.</p>
+              <p class="product-desc">The ultimate chameleon piece. A beautiful matching silhouette engineered to blend into desk-to-dinner timelines or casual weekend itineraries.</p>
               <div class="product-footer">
                 <span class="product-price">Shop Now</span>
-                <a href="https://amzn.in/d/05NRMqzh" target="_blank" rel="noopener sponsored" class="btn-amazon">Amazon</a>
+                <a href="https://amzn.in/d/04K9ZBS8" target="_blank" rel="noopener sponsored" class="btn-amazon">Amazon</a>
               </div>
             </div>
           </div>
@@ -461,13 +446,13 @@
   <div id="page-indian" class="page-content">
     <section class="hero">
       <div class="hero-left">
-        <p class="hero-kicker">Summer 2026 — Modern Ethnic</p>
+        <p class="hero-kicker">Summer Capsule — Modern Ethnic</p>
         <h1>Elegant silhouettes for <em>everyday</em> comfort.</h1>
         <p>Curated modern kurtas, elegant coordinates, and contemporary ethnic styles optimized for office or casual wear.</p>
         <a href="#indian-grid-anchor" class="btn-primary">Shop Ethnic Wear</a>
       </div>
       <div class="hero-right">
-        <img src="https://m.media-amazon.com/images/I/61S-M7tU1NL._AC_UL400_.jpg" alt="Indian Wear Banner" class="hero-image" />
+        <img src="https://m.media-amazon.com/images/I/91fzfXHjdoL._SX679_.jpg" alt="Indian Wear Banner" class="hero-image" />
       </div>
     </section>
 
@@ -481,12 +466,28 @@
 
           <div class="product-card" data-category="sets">
             <div class="product-img">
-              <img src="https://m.media-amazon.com/images/I/61S-M7tU1NL._AC_UL400_.jpg" alt="Stylish Pocket & 3/4 Sleeve Co-ord Set">
+              <img src="https://m.media-amazon.com/images/I/91fzfXHjdoL._SX679_.jpg" alt="Stylish Pocket & 3/4 Sleeve Co-ord Set">
             </div>
             <div class="product-body">
               <p class="product-tag">Co-ord Sets</p>
               <p class="product-name">Stylish Pocket & 3/4 Sleeve Women Co-ord Set</p>
               <p class="product-desc">A contemporary matching profile featuring highly functional pockets and effortless 3/4 length sleeves. Perfect for chic, everyday Indian styling.</p>
+              <div class="product-footer">
+                <span class="product-price">Shop Now</span>
+                <a href="https://amzn.in/d/0aciGhon" target="_blank" rel="noopener sponsored" class="btn-amazon">Amazon</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="sets">
+            <div class="product-img">
+              <img src="https://m.media-amazon.com/images/I/91oLdZdnRYL._SX679_.jpg" alt="Turkish Mandarin Neck Floral Print Co-ord Set">
+              <span class="product-badge">Trending</span>
+            </div>
+            <div class="product-body">
+              <p class="product-tag">Co-ord Sets</p>
+              <p class="product-name">Turkish Mandarin Neck Floral Print Co-ord Set</p>
+              <p class="product-desc">An elegant fusion design showcasing a stately mandarin neck combined with rich, tasteful floral artistry. Made to bring fresh, botanical energy to daytime wear.</p>
               <div class="product-footer">
                 <span class="product-price">Shop Now</span>
                 <a href="https://amzn.in/d/0aciGhon" target="_blank" rel="noopener sponsored" class="btn-amazon">Amazon</a>
@@ -509,7 +510,7 @@
         <a href="#acc-grid-anchor" class="btn-primary">Shop Accessories</a>
       </div>
       <div class="hero-right">
-        <img src="https://i.ibb.co/6cbHNBbB/image.png" alt="Accessories Layout" class="hero-image" />
+        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80" alt="Accessories Layout" class="hero-image" />
       </div>
     </section>
     <section class="section" id="acc-grid-anchor">
@@ -529,7 +530,7 @@
         <a href="#travel-grid-anchor" class="btn-primary">Shop Travel Edit</a>
       </div>
       <div class="hero-right">
-        <img src="https://i.ibb.co/9HwBz4mV/image-4296a5.png" alt="Travel Capsule" class="hero-image" />
+        <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=600&q=80" alt="Travel Capsule" class="hero-image" />
       </div>
     </section>
     <section class="section" id="travel-grid-anchor">
@@ -549,7 +550,7 @@
         <a href="#picks-grid-anchor" class="btn-primary">Explore Top Picks</a>
       </div>
       <div class="hero-right">
-        <img src="https://i.ibb.co/4gFnDqrN/image.png" alt="Viral Products" class="hero-image" />
+        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=600&q=80" alt="Viral Products" class="hero-image" />
       </div>
     </section>
     <section class="section" id="picks-grid-anchor">
